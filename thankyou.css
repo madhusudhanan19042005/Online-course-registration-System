@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: #fff;
+    color: #111;
+  }
+  
+  /* Success Page Layout */
+  .success-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+  }
+  
+  .success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    padding: 32px;
+    text-align: center;
+  }
+  
+  /* Success Icon */
+  .success-icon-wrapper {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  
+  .success-icon {
+    width: 100%;
+    height: 100%;
+    transition: all 500ms;
+  }
+  
+  .checkmark {
+    transition: all 300ms;
+  }
+  
+  /* Text Elements */
+  .success-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    transition: all 500ms;
+    transition-delay: 200ms;
+    color: #111;
+  }
+  
+  .success-message {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 32px;
+    transition: all 500ms;
+    transition-delay: 300ms;
+  }
+  
+  /* Button Styles */
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    transition: all 500ms;
+    transition-delay: 400ms;
+  }
+  
+  .primary-button {
+    width: 100%;
+    background-color: #4318d1;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(67, 24, 209, 0.15);
+    transition: all 300ms;
+  }
+  
+  .secondary-button {
+    width: 100%;
+    background-color: #fff;
+    color: #4318d1;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: 1px solid #4318d1;
+    cursor: pointer;
+    transition: all 300ms;
+  }
+  
+  /* Hover Effects */
+  .primary-button:hover,
+  .secondary-button:hover {
+    transform: translateY(-1px);
+  }
+  
+  /* Focus States for Accessibility */
+  .primary-button:focus,
+  .secondary-button:focus {
+    outline: 2px solid #4318d1;
+    outline-offset: 2px;
+  }
+  
+  

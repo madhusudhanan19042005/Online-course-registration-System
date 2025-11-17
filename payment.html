@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Secure Checkout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #1a202c;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header p {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d3748;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .amount-section {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .amount-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .amount-label {
+            color: #4a5568;
+            font-size: 14px;
+        }
+
+        .amount-input {
+            width: 150px;
+            padding: 8px 12px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: right;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+        }
+
+        .amount-display {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1a202c;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .security-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: #718096;
+            font-size: 13px;
+            margin-top: 16px;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error {
+            color: #e53e3e;
+            font-size: 13px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .error.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="2" y="5" width="20" height="14" rx="2" stroke-width="2"/>
+                    <path d="M2 10h20" stroke-width="2"/>
+                </svg>
+                Payment Details
+            </h1>
+            <p>Enter your payment information to complete your registration</p>
+        </div>
+
+        <form id="paymentForm">
+            <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="cardNumber" 
+                        placeholder="1234 5678 9012 3456"
+                        maxlength="19"
+                        required
+                    >
+                    <svg class="input-icon icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <rect x="2" y="5" width="20" height="14" rx="2" stroke-width="2"/>
+                        <path d="M2 10h20" stroke-width="2"/>
+                    </svg>
+                </div>
+                <span class="error" id="cardNumberError">Please enter a valid card number</span>
+            </div>
+
+            <div class="form-group">
+                <label for="cardName">Cardholder Name</label>
+                <input 
+                    type="text" 
+                    id="cardName" 
+                    placeholder="John Doe"
+                    required
+                >
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="expiry">Expiry Date</label>
+                    <input 
+                        type="text" 
+                        id="expiry" 
+                        placeholder="MM/YY"
+                        maxlength="5"
+                        required
+                    >
+                    <span class="error" id="expiryError">Invalid date</span>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input 
+                        type="password" 
+                        id="cvv" 
+                        placeholder="123"
+                        maxlength="3"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="amount-section">
+                <div class="amount-row">
+                    <span class="amount-label">Amount to Pay</span>
+                    <input 
+                        type="number" 
+                        id="amount" 
+                        class="amount-input" 
+                        value="99.00"
+                        step="0.01"
+                        min="0.01"
+                    >
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="5" y="11" width="14" height="10" rx="2" stroke-width="2"/>
+                    <path d="M12 11V7a3 3 0 016 0v4M9 11V7a3 3 0 00-6 0v4" stroke-width="2"/>
+                </svg>
+                Pay Securely
+            </button>
+
+            <div class="security-badge">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 14px; height: 14px;">
+                    <rect x="5" y="11" width="14" height="10" rx="2" stroke-width="2"/>
+                    <path d="M12 11V7a3 3 0 016 0v4M9 11V7a3 3 0 00-6 0v4" stroke-width="2"/>
+                </svg>
+                Your payment is secure and encrypted
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const cardNumberInput = document.getElementById('cardNumber');
+        const expiryInput = document.getElementById('expiry');
+        const cvvInput = document.getElementById('cvv');
+        const amountInput = document.getElementById('amount');
+        const form = document.getElementById('paymentForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Format card number with spaces
+        cardNumberInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '');
+            value = value.replace(/\D/g, '');
+            
+            let formattedValue = '';
+            for (let i = 0; i < value.length && i < 16; i++) {
+                if (i > 0 && i % 4 === 0) {
+                    formattedValue += ' ';
+                }
+                formattedValue += value[i];
+            }
+            e.target.value = formattedValue;
+        });
+
+        // Format expiry date
+        expiryInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length >= 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // CVV only numbers
+        cvvInput.addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+        });
+
+        // Format amount input
+        amountInput.addEventListener('input', function(e) {
+            let value = parseFloat(e.target.value);
+            if (isNaN(value) || value < 0) {
+                e.target.value = '0.00';
+            }
+        });
+
+        amountInput.addEventListener('blur', function(e) {
+            let value = parseFloat(e.target.value);
+            if (!isNaN(value)) {
+                e.target.value = value.toFixed(2);
+            }
+        });
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate card number
+            const cardNumber = cardNumberInput.value.replace(/\s/g, '');
+            if (cardNumber.length !== 16) {
+                document.getElementById('cardNumberError').classList.add('show');
+                return;
+            } else {
+                document.getElementById('cardNumberError').classList.remove('show');
+            }
+
+            // Validate expiry
+            const expiry = expiryInput.value;
+            if (!expiry.match(/^\d{2}\/\d{2}$/)) {
+                document.getElementById('expiryError').classList.add('show');
+                return;
+            } else {
+                document.getElementById('expiryError').classList.remove('show');
+            }
+
+            // Show processing state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <span class="spinner"></span>
+                Processing Payment...
+            `;
+
+            // Store payment data
+            const paymentData = {
+                amount: amountInput.value,
+                cardNumber: cardNumber.slice(-4),
+                date: new Date().toISOString()
+            };
+            localStorage.setItem('paymentData', JSON.stringify(paymentData));
+
+            // Simulate payment processing
+            setTimeout(function() {
+                window.location.href = 'payment-success.html';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

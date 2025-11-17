@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  /* Custom styles to complement Tailwind */
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  
+  .w-screen {
+    width: 100%;
+  }
+  
+  .max-w-\[600px\] {
+    max-width: 600px;
+  }
+  
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .p-\[32px\] {
+    padding: 32px;
+  }
+  
+  .p-\[24px\] {
+    padding: 24px;
+  }
+  
+  .px-\[16px\] {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .py-\[12px\] {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  
+  .py-\[14px\] {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  
+  .px-\[24px\] {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  .mb-\[32px\] {
+    margin-bottom: 32px;
+  }
+  
+  .mb-\[16px\] {
+    margin-bottom: 16px;
+  }
+  
+  .mb-\[24px\] {
+    margin-bottom: 24px;
+  }
+  
+  .mt-\[16px\] {
+    margin-top: 16px;
+  }
+  
+  .bg-white {
+    background-color: #ffffff;
+  }
+  
+  .bg-\[#f8f9fa\] {
+    background-color: #f8f9fa;
+  }
+  
+  .bg-\[#4318D1\] {
+    background-color: #4318d1;
+  }
+  
+  .text-white {
+    color: #ffffff;
+  }
+  
+  .text-\[#111\] {
+    color: #111111;
+  }
+  
+  .text-\[#333\] {
+    color: #333333;
+  }
+  
+  .text-\[#555\] {
+    color: #555555;
+  }
+  
+  .text-\[#4318D1\] {
+    color: #4318d1;
+  }
+  
+  .text-\[#dc2626\] {
+    color: #dc2626;
+  }
+  
+  .text-\[32px\] {
+    font-size: 32px;
+  }
+  
+  .text-\[16px\] {
+    font-size: 16px;
+  }
+  
+  .text-\[14px\] {
+    font-size: 14px;
+  }
+  
+  .text-\[12px\] {
+    font-size: 12px;
+  }
+  
+  .font-bold {
+    font-weight: 700;
+  }
+  
+  .font-medium {
+    font-weight: 500;
+  }
+  
+  .rounded-\[16px\] {
+    border-radius: 16px;
+  }
+  
+  .rounded-\[12px\] {
+    border-radius: 12px;
+  }
+  
+  .rounded-\[8px\] {
+    border-radius: 8px;
+  }
+  
+  .shadow-\[0_4px_12px_rgba\(0\,0\,0\,0\.1\)\] {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .border-\[1px\] {
+    border-width: 1px;
+  }
+  
+  .border-\[#ddd\] {
+    border-color: #dddddd;
+  }
+  
+  .border-\[#4318D1\] {
+    border-color: #4318d1;
+  }
+  
+  .border-l-\[4px\] {
+    border-left-width: 4px;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .grid {
+    display: grid;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .gap-\[24px\] {
+    gap: 24px;
+  }
+  
+  .gap-\[16px\] {
+    gap: 16px;
+  }
+  
+  .gap-\[12px\] {
+    gap: 12px;
+  }
+  
+  .gap-\[8px\] {
+    gap: 8px;
+  }
+  
+  .gap-\[4px\] {
+    gap: 4px;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .w-\[48px\] {
+    width: 48px;
+  }
+  
+  .h-\[48px\] {
+    height: 48px;
+  }
+  
+  .w-\[28px\] {
+    width: 28px;
+  }
+  
+  .h-\[28px\] {
+    height: 28px;
+  }
+  
+  .w-\[20px\] {
+    width: 20px;
+  }
+  
+  .h-\[20px\] {
+    height: 20px;
+  }
+  
+  .w-\[16px\] {
+    width: 16px;
+  }
+  
+  .h-\[16px\] {
+    height: 16px;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .flex-1 {
+    flex: 1 1 0%;
+  }
+  
+  .outline-none {
+    outline: none;
+  }
+  
+  .transition-all {
+    transition-property: all;
+  }
+  
+  .duration-300 {
+    transition-duration: 300ms;
+  }
+  
+  .accent-\[#4318D1\] {
+    accent-color: #4318d1;
+  }
+  
+  /* Focus state for inputs */
+  input:focus {
+    border-color: #4318d1;
+  }
+  
+  /* Button hover states */
+  .submit-button:hover {
+    background-color: #3612a9;
+  }
+  
+  .reset-button:hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 640px) {
+    .max-sm\:p-\[16px\] {
+      padding: 16px;
+    }
+  
+    .max-sm\:p-\[24px\] {
+      padding: 24px;
+    }
+  
+    .max-sm\:grid-cols-1 {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+  
+  

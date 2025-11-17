@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloud Computing Course Registration</title>
+    <link rel="stylesheet" href="cloud.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <main
+      x-data="{
+      formData: {
+        name: '',
+        education: '',
+        gender: '',
+        email: '',
+        contact: ''
+      },
+      errors: {},
+      submitForm() {
+        this.errors = {};
+        let hasError = false;
+
+        if(!this.formData.name.trim()) {
+          this.errors.name = 'Name is required';
+          hasError = true;
+        }
+
+        if(!this.formData.education.trim()) {
+          this.errors.education = 'Education is required';
+          hasError = true;
+        }
+
+        if(!this.formData.gender) {
+          this.errors.gender = 'Please select gender';
+          hasError = true;
+        }
+
+        if(!this.formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.formData.email)) {
+          this.errors.email = 'Valid email is required';
+          hasError = true;
+        }
+
+        if(!this.formData.contact.trim() || !/^\d{10}$/.test(this.formData.contact)) {
+          this.errors.contact = 'Valid 10-digit contact number is required';
+          hasError = true;
+        }
+
+        if(!hasError) {
+          alert('Form submitted successfully!');
+        }
+      },
+      resetForm() {
+        this.formData = {
+          name: '',
+          education: '',
+          gender: '',
+          email: '',
+          contact: ''
+        };
+        this.errors = {};
+      }
+    }"
+      class="page-container"
+    >
+      <div class="form-container">
+        <div class="card">
+          <header class="course-header">
+            <div class="header-content">
+              <div class="icon-container">
+                <svg
+                  class="icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                  ></path>
+                </svg>
+              </div>
+              <h1 class="course-title">Cloud Computing</h1>
+            </div>
+            <p class="course-description">
+              Master cloud technologies and become a certified cloud
+              professional. Learn AWS, Azure, and cloud architecture principles.
+            </p>
+            <div class="course-details">
+              <section class="coverage-section">
+                <h3 class="section-title">Course Coverage:</h3>
+                <div class="topics-grid">
+                  <div class="topic-item">
+                    <div class="topic-icon-container">
+                      <svg
+                        class="topic-icon"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                        ></path>
+                      </svg>
+                    </div>
+                    <span class="topic-text">Infrastructure as Code</span>
+                  </div>
+                  <div class="topic-item">
+                    <div class="topic-icon-container">
+                      <svg
+                        class="topic-icon"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <span class="topic-text">Cloud Security</span>
+                  </div>
+                  <div class="topic-item">
+                    <div class="topic-icon-container">
+                      <svg
+                        class="topic-icon"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <span class="topic-text">Containerization</span>
+                  </div>
+                  <div class="topic-item">
+                    <div class="topic-icon-container">
+                      <svg
+                        class="topic-icon"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                        ></path>
+                      </svg>
+                    </div>
+                    <span class="topic-text">Auto Scaling</span>
+                  </div>
+                </div>
+              </section>
+              <div class="highlight-box">
+                <svg
+                  class="highlight-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  ></path>
+                </svg>
+                <p class="highlight-text">
+                  Get hands-on experience with real cloud platforms and earn
+                  industry-recognized certifications.
+                </p>
+              </div>
+            </div>
+          </header>
+          <form x-on:submit="event.preventDefault(); submitForm()">
+            <div class="form-fields">
+              <div class="form-group">
+                <label class="form-label" for="name">Full Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  x-model="formData.name"
+                  class="form-input"
+                  placeholder="Enter your full name"
+                />
+                <span
+                  x-show="errors.name"
+                  x-text="errors.name"
+                  class="error-message"
+                ></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="education">Education</label>
+                <input
+                  type="text"
+                  id="education"
+                  x-model="formData.education"
+                  class="form-input"
+                  placeholder="Your highest qualification"
+                />
+                <span
+                  x-show="errors.education"
+                  x-text="errors.education"
+                  class="error-message"
+                ></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Gender</label>
+                <div class="radio-group">
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="male"
+                      name="gender"
+                      value="male"
+                      x-model="formData.gender"
+                      class="radio-input"
+                    />
+                    <label for="male" class="radio-label">Male</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="female"
+                      name="gender"
+                      value="female"
+                      x-model="formData.gender"
+                      class="radio-input"
+                    />
+                    <label for="female" class="radio-label">Female</label>
+                  </div>
+                  <div class="radio-option">
+                    <input
+                      type="radio"
+                      id="other"
+                      name="gender"
+                      value="other"
+                      x-model="formData.gender"
+                      class="radio-input"
+                    />
+                    <label for="other" class="radio-label">Other</label>
+                  </div>
+                </div>
+                <span
+                  x-show="errors.gender"
+                  x-text="errors.gender"
+                  class="error-message"
+                ></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  x-model="formData.email"
+                  class="form-input"
+                  placeholder="your.email@example.com"
+                />
+                <span
+                  x-show="errors.email"
+                  x-text="errors.email"
+                  class="error-message"
+                ></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact">Contact Number</label>
+                <input
+                  type="tel"
+                  id="contact"
+                  x-model="formData.contact"
+                  class="form-input"
+                  placeholder="10-digit mobile number"
+                />
+                <span
+                  x-show="errors.contact"
+                  x-text="errors.contact"
+                  class="error-message"
+                ></span>
+              </div>
+              <div class="button-group">
+                <button
+                  type="submit"
+                  class="submit-button"
+                  x-on:mouseenter="$event.target.style.backgroundColor = '#3612A9'"
+                  x-on:mouseleave="$event.target.style.backgroundColor = '#4318D1'"
+                >
+                  Launch Your Cloud Career
+                </button>
+                <button
+                  type="button"
+                  class="reset-button"
+                  x-on:click="resetForm()"
+                  x-on:mouseenter="$event.target.style.backgroundColor = '#f8f9fa'"
+                  x-on:mouseleave="$event.target.style.backgroundColor = '#fff'"
+                >
+                  Reset Form
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

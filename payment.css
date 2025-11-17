@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+  }
+  
+  /* Payment container */
+  .payment-container {
+    background-color: #f8f9ff;
+  }
+  
+  /* Credit card styles */
+  .credit-card {
+    transition: transform 0.3s ease;
+  }
+  
+  .credit-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Form input focus styles */
+  .form-input:focus {
+    outline: none;
+  }
+  
+  /* Button hover effect */
+  .submit-button:hover {
+    box-shadow: 0 4px 12px rgba(67, 24, 209, 0.2);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 640px) {
+    .payment-content {
+      flex-direction: column;
+    }
+  
+    .card-preview-section {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  
+    .form-row {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+  
+  /* Animation for card details update */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .card-number p,
+  .cardholder-info p,
+  .expiry-info p {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  /* Accessibility improvements */
+  input:focus {
+    outline: none;
+  }
+  
+  /* Custom placeholder color */
+  ::placeholder {
+    color: #a0aec0;
+    opacity: 0.7;
+  }
+  

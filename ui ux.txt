@@ -1,0 +1,1395 @@
+ui ux:
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI/UX Design Course</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+      }
+
+      .course-container {
+        width: 100%;
+        min-height: screen;
+        background-color: #f8fafc;
+        padding: 32px;
+      }
+
+      .course-wrapper {
+        max-width: 1136px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .course-header {
+        width: 100%;
+        background-color: #4318d1;
+        border-radius: 24px;
+        padding: 48px;
+      }
+
+      .course-title {
+        font-size: 40px;
+        color: #fff;
+        font-weight: 700;
+        line-height: 60px;
+        margin-bottom: 18px;
+      }
+
+      .course-description {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 18px;
+        line-height: 27px;
+        margin-bottom: 30px;
+        max-width: 552px;
+      }
+
+      .course-features {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .feature-text {
+        color: #fff;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      .course-tabs {
+        margin-top: 48px;
+        border-width: 0.8px;
+        border-color: #e5e7eb;
+      }
+
+      .tabs-list {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .tab-item {
+        position: relative;
+        padding-bottom: 16px;
+      }
+
+      .tab-active {
+        color: #4318d1;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+      }
+
+      .tab-inactive {
+        color: #666;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+      }
+
+      .active-indicator {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 1.6px;
+        background-color: #4318d1;
+      }
+
+      .course-content {
+        margin-top: 32px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .stats-section {
+        flex: 1;
+      }
+
+      .section-title {
+        color: #000;
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .stat-card {
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+      }
+
+      .stat-label {
+        color: #666;
+        font-size: 14px;
+        line-height: 21px;
+        margin-bottom: 8px;
+      }
+
+      .stat-value {
+        color: #1a1a1a;
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: 700;
+      }
+
+      .rating-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .learning-section {
+        flex: 1;
+      }
+
+      .learning-card {
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+      }
+
+      .learning-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .learning-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .learning-text {
+        color: #000;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      @media (max-width: 991px) {
+        .course-header {
+          padding: 32px;
+        }
+
+        .course-title {
+          font-size: 32px;
+          line-height: 48px;
+        }
+
+        .course-description {
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        .course-content {
+          grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .course-container {
+          padding: 16px;
+        }
+
+        .course-header {
+          padding: 24px;
+        }
+
+        .course-title {
+          font-size: 28px;
+          line-height: 42px;
+        }
+
+        .course-description {
+          font-size: 14px;
+          line-height: 21px;
+        }
+
+        .course-features {
+          gap: 16px;
+        }
+
+        .tabs-list {
+          gap: 16px;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="course-container">
+      <div class="course-wrapper">
+        <header class="course-header">
+          <h1 class="course-title">UI/UX Design Course</h1>
+          <p class="course-description">
+            Master modern UI/UX design principles and create stunning user
+            experiences with practical projects
+          </p>
+          <div class="course-features">
+            <div class="feature-item">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[24px] h-[24px] text-[#FFF]"
+              >
+                <path
+                  d="M12 8V12L15 15M21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4442 20.3149C14.3522 20.7672 13.1819 21 12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.3869 3 16.6761 3.94821 18.364 5.63604C20.0518 7.32387 21 9.61305 21 12Z"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              <span class="feature-text">3 Hours</span>
+            </div>
+            <div class="feature-item">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[24px] h-[24px] text-[#FFF]"
+              >
+                <path
+                  d="M9 12L11 14L15 10M21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4442 20.3149C14.3522 20.7672 13.1819 21 12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.3869 3 16.6761 3.94821 18.364 5.63604C20.0518 7.32387 21 9.61305 21 12Z"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              <span class="feature-text">Certificate Included</span>
+            </div>
+            <div class="feature-item">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[24px] h-[24px] text-[#FFF]"
+              >
+                <path
+                  d="M21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4442 20.3149C14.3522 20.7672 13.1819 21 12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.3869 3 16.6761 3.94821 18.364 5.63604C20.0518 7.32387 21 9.61305 21 12Z"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              <span class="feature-text">Lifetime Access</span>
+            </div>
+          </div>
+        </header>
+
+        <nav class="course-tabs">
+          <ul class="tabs-list">
+            <li class="tab-item">
+              <span class="tab-active">Overview</span>
+              <div class="active-indicator"></div>
+            </li>
+            <li>
+              <span class="tab-inactive">Curriculum</span>
+            </li>
+            <li>
+              <span class="tab-inactive">Projects</span>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="course-content">
+          <section class="stats-section">
+            <h2 class="section-title">Course Statistics</h2>
+            <div class="stats-grid">
+              <article class="stat-card">
+                <h3 class="stat-label">Enrolled Students</h3>
+                <p class="stat-value">12,000+</p>
+              </article>
+              <article class="stat-card">
+                <h3 class="stat-label">Course Rating</h3>
+                <div class="rating-wrapper">
+                  <p class="stat-value">4.9</p>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-[20px] h-[20px]"
+                  >
+                    <path
+                      d="M9.04897 2.92696C9.34897 2.00596 10.652 2.00596 10.951 2.92696L12.021 6.21896C12.0863 6.41944 12.2134 6.59414 12.384 6.71806C12.5547 6.84199 12.7601 6.9088 12.971 6.90896H16.433C17.402 6.90896 17.804 8.14896 17.021 8.71896L14.221 10.753C14.05 10.877 13.9227 11.052 13.8573 11.2528C13.7919 11.4537 13.7918 11.67 13.857 11.871L14.927 15.163C15.227 16.084 14.172 16.851 13.387 16.281L10.587 14.247C10.4162 14.123 10.2105 14.0562 9.99947 14.0562C9.78842 14.0562 9.58277 14.123 9.41197 14.247L6.61197 16.281C5.82797 16.851 4.77397 16.084 5.07297 15.163L6.14297 11.871C6.20815 11.67 6.20803 11.4537 6.14264 11.2528C6.07725 11.052 5.94994 10.877 5.77897 10.753L2.97997 8.71996C2.19697 8.14996 2.59997 6.90996 3.56797 6.90996H7.02897C7.24002 6.91001 7.44568 6.84329 7.6165 6.71935C7.78732 6.59541 7.91455 6.42061 7.97997 6.21996L9.04997 2.92796L9.04897 2.92696Z"
+                      fill="black"
+                    ></path>
+                  </svg>
+                </div>
+              </article>
+              <article class="stat-card">
+                <h3 class="stat-label">Course Duration</h3>
+                <p class="stat-value">3 Hours</p>
+              </article>
+              <article class="stat-card">
+                <h3 class="stat-label">Major Projects</h3>
+                <p class="stat-value">6</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="learning-section">
+            <h2 class="section-title">What You'll Learn</h2>
+            <div class="learning-card">
+              <ul class="learning-list">
+                <li class="learning-item">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-[24px] h-[24px] flex-shrink-0 mt-[2px]"
+                  >
+                    <path
+                      d="M5 13L9 17L19 7"
+                      stroke="black"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  <span class="learning-text"
+                    >Master essential UI design principles and theory</span
+                  >
+                </li>
+                <li class="learning-item">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-[24px] h-[24px] flex-shrink-0 mt-[2px]"
+                  >
+                    <path
+                      d="M5 13L9 17L19 7"
+                      stroke="black"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  <span class="learning-text"
+                    >Create user-centered design experiences</span
+                  >
+                </li>
+                <li class="learning-item">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-[24px] h-[24px] flex-shrink-0 mt-[2px]"
+                  >
+                    <path
+                      d="M5 13L9 17L19 7"
+                      stroke="black"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  <span class="learning-text"
+                    >Build professional design systems</span
+                  >
+                </li>
+                <li class="learning-item">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-[24px] h-[24px] flex-shrink-0 mt-[2px]"
+                  >
+                    <path
+                      d="M5 13L9 17L19 7"
+                      stroke="black"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  <span class="learning-text"
+                    >Conduct effective user research and testing</span
+                  >
+                </li>
+                <li class="learning-item">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-[24px] h-[24px] flex-shrink-0 mt-[2px]"
+                  >
+                    <path
+                      d="M5 13L9 17L19 7"
+                      stroke="black"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  <span class="learning-text"
+                    >Create interactive prototypes in Figma</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+
+
+java:
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Programming Course Details</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        width: 100%;
+        min-height: 100vh;
+        background-color: #f8fafc;
+        padding: 32px;
+      }
+
+      @media (max-width: 991px) {
+        body {
+          padding: 24px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding: 16px;
+        }
+      }
+
+      .container {
+        max-width: 1136px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .course-header {
+        width: 100%;
+        background-color: #4318d1;
+        border-radius: 24px;
+        padding: 48px;
+      }
+
+      @media (max-width: 991px) {
+        .course-header {
+          padding: 32px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .course-header {
+          padding: 24px;
+        }
+      }
+
+      .course-title {
+        font-size: 40px;
+        color: #fff;
+        font-weight: 700;
+        line-height: 60px;
+        margin-bottom: 18px;
+      }
+
+      @media (max-width: 991px) {
+        .course-title {
+          font-size: 32px;
+          line-height: 48px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .course-title {
+          font-size: 28px;
+          line-height: 42px;
+        }
+      }
+
+      .course-description {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 18px;
+        line-height: 27px;
+        margin-bottom: 30px;
+        max-width: 552px;
+      }
+
+      @media (max-width: 991px) {
+        .course-description {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .course-description {
+          font-size: 14px;
+          line-height: 21px;
+        }
+      }
+
+      .course-features {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 24px;
+      }
+
+      @media (max-width: 640px) {
+        .course-features {
+          gap: 16px;
+        }
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .feature-text {
+        color: #fff;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      .nav-tabs {
+        margin-top: 48px;
+        border-width: 0.8px;
+        border-color: #e5e7eb;
+      }
+
+      .tab-list {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+      }
+
+      @media (max-width: 640px) {
+        .tab-list {
+          gap: 16px;
+        }
+      }
+
+      .tab-item {
+        position: relative;
+        padding-bottom: 16px;
+      }
+
+      .tab-active {
+        color: #4318d1;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+      }
+
+      .tab-indicator {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 1.6px;
+        background-color: #4318d1;
+      }
+
+      .tab-inactive {
+        color: #666;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+      }
+
+      .course-content {
+        margin-top: 32px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      @media (max-width: 991px) {
+        .course-content {
+          grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+      }
+
+      .content-section {
+        flex: 1;
+      }
+
+      .section-title {
+        color: #000;
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      @media (max-width: 640px) {
+        .stats-grid {
+          grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+      }
+
+      .stat-card {
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+      }
+
+      .stat-label {
+        color: #666;
+        font-size: 14px;
+        line-height: 21px;
+        margin-bottom: 8px;
+      }
+
+      .stat-value {
+        color: #1a1a1a;
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: 700;
+      }
+
+      .rating-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .learning-card {
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+      }
+
+      .learning-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        list-style: none;
+      }
+
+      .learning-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .learning-text {
+        color: #000;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      .icon {
+        flex-shrink: 0;
+      }
+
+      .check-icon {
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <header class="course-header">
+        <h1 class="course-title">Java Programming</h1>
+        <p class="course-description">
+          Master Java programming fundamentals and create powerful applications
+          with hands-on projects
+        </p>
+        <div class="course-features">
+          <div class="feature-item">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon"
+            >
+              <path
+                d="M12 8V12L15 15M21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4442 20.3149C14.3522 20.7672 13.1819 21 12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.3869 3 16.6761 3.94821 18.364 5.63604C20.0518 7.32387 21 9.61305 21 12Z"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+            <span class="feature-text">15 Hours</span>
+          </div>
+          <div class="feature-item">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon"
+            >
+              <path
+                d="M9 12L11 14L15 10M21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4442 20.3149C14.3522 20.7672 13.1819 21 12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.3869 3 16.6761 3.94821 18.364 5.63604C20.0518 7.32387 21 9.61305 21 12Z"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+            <span class="feature-text">Certificate Included</span>
+          </div>
+          <div class="feature-item">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon"
+            >
+              <path
+                d="M21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4442 20.3149C14.3522 20.7672 13.1819 21 12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.3869 3 16.6761 3.94821 18.364 5.63604C20.0518 7.32387 21 9.61305 21 12Z"
+                stroke="black"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+            <span class="feature-text">Lifetime Access</span>
+          </div>
+        </div>
+      </header>
+
+      <nav class="nav-tabs">
+        <ul class="tab-list">
+          <li class="tab-item">
+            <a href="#overview" class="tab-active">Overview</a>
+            <div class="tab-indicator"></div>
+          </li>
+          <li class="tab-item">
+            <a href="#curriculum" class="tab-inactive">Curriculum</a>
+          </li>
+          <li class="tab-item">
+            <a href="#projects" class="tab-inactive">Projects</a>
+          </li>
+        </ul>
+      </nav>
+
+      <section class="course-content">
+        <section class="content-section">
+          <h2 class="section-title">Course Statistics</h2>
+          <div class="stats-grid">
+            <article class="stat-card">
+              <h3 class="stat-label">Enrolled Students</h3>
+              <p class="stat-value">12,000+</p>
+            </article>
+            <article class="stat-card">
+              <h3 class="stat-label">Course Rating</h3>
+              <div class="rating-wrapper">
+                <p class="stat-value">4.9</p>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.04897 2.92696C9.34897 2.00596 10.652 2.00596 10.951 2.92696L12.021 6.21896C12.0863 6.41944 12.2134 6.59414 12.384 6.71806C12.5547 6.84199 12.7601 6.9088 12.971 6.90896H16.433C17.402 6.90896 17.804 8.14896 17.021 8.71896L14.221 10.753C14.05 10.877 13.9227 11.052 13.8573 11.2528C13.7919 11.4537 13.7918 11.67 13.857 11.871L14.927 15.163C15.227 16.084 14.172 16.851 13.387 16.281L10.587 14.247C10.4162 14.123 10.2105 14.0562 9.99947 14.0562C9.78842 14.0562 9.58277 14.123 9.41197 14.247L6.61197 16.281C5.82797 16.851 4.77397 16.084 5.07297 15.163L6.14297 11.871C6.20815 11.67 6.20803 11.4537 6.14264 11.2528C6.07725 11.052 5.94994 10.877 5.77897 10.753L2.97997 8.71996C2.19697 8.14996 2.59997 6.90996 3.56797 6.90996H7.02897C7.24002 6.91001 7.44568 6.84329 7.6165 6.71935C7.78732 6.59541 7.91455 6.42061 7.97997 6.21996L9.04997 2.92796L9.04897 2.92696Z"
+                    fill="black"
+                  ></path>
+                </svg>
+              </div>
+            </article>
+            <article class="stat-card">
+              <h3 class="stat-label">Course Duration</h3>
+              <p class="stat-value">15 Hours</p>
+            </article>
+            <article class="stat-card">
+              <h3 class="stat-label">Major Projects</h3>
+              <p class="stat-value">6</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2 class="section-title">What You'll Learn</h2>
+          <div class="learning-card">
+            <ul class="learning-list">
+              <li class="learning-item">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="check-icon"
+                >
+                  <path
+                    d="M5 13L9 17L19 7"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+                <p class="learning-text">
+                  Master core Java programming concepts and syntax
+                </p>
+              </li>
+              <li class="learning-item">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="check-icon"
+                >
+                  <path
+                    d="M5 13L9 17L19 7"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+                <p class="learning-text">
+                  Build object-oriented applications effectively
+                </p>
+              </li>
+              <li class="learning-item">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="check-icon"
+                >
+                  <path
+                    d="M5 13L9 17L19 7"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+                <p class="learning-text">
+                  Develop efficient algorithms and data structures
+                </p>
+              </li>
+              <li class="learning-item">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="check-icon"
+                >
+                  <path
+                    d="M5 13L9 17L19 7"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+                <p class="learning-text">Write clean, maintainable Java code</p>
+              </li>
+              <li class="learning-item">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="check-icon"
+                >
+                  <path
+                    d="M5 13L9 17L19 7"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+                <p class="learning-text">Build real-world Java applications</p>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
+
+
+dm:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Overview - Digital Marketing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f8fafc;
+    }
+
+    .course-container {
+      width: 100%;
+      min-height: 100vh;
+      background-color: #f8fafc;
+      padding: 32px;
+    }
+
+    @media (max-width: 991px) {
+      .course-container {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .course-container {
+        padding: 16px;
+      }
+    }
+
+    .content-wrapper {
+      max-width: 1136px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .course-header {
+      width: 100%;
+      background-color: #4318d1;
+      border-radius: 24px;
+      padding: 48px;
+    }
+
+    @media (max-width: 991px) {
+      .course-header {
+        padding: 32px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .course-header {
+        padding: 24px;
+      }
+    }
+
+    .course-title {
+      font-size: 40px;
+      color: #fff;
+      font-weight: 700;
+      line-height: 60px;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 991px) {
+      .course-title {
+        font-size: 32px;
+        line-height: 48px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .course-title {
+        font-size: 28px;
+        line-height: 42px;
+      }
+    }
+
+    .course-description {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 18px;
+      line-height: 27px;
+      margin-bottom: 30px;
+      max-width: 552px;
+    }
+
+    @media (max-width: 991px) {
+      .course-description {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .course-description {
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+
+    .course-features {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .course-features {
+        gap: 16px;
+      }
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-text {
+      color: #fff;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .tab-navigation {
+      margin-top: 48px;
+      border-width: 0.8px;
+      border-color: #e5e7eb;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 32px;
+    }
+
+    @media (max-width: 640px) {
+      .tabs {
+        gap: 16px;
+      }
+    }
+
+    .tab-item {
+      position: relative;
+      padding-bottom: 16px;
+    }
+
+    .tab-active {
+      color: #4318d1;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 500;
+    }
+
+    .active-indicator {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 1.6px;
+      background-color: #4318d1;
+    }
+
+    .tab-inactive {
+      color: #666;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 500;
+    }
+
+    .course-content {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    @media (max-width: 991px) {
+      .course-content {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
+
+    .stats-section {
+      flex: 1;
+    }
+
+    .section-title {
+      color: #000;
+      font-size: 24px;
+      line-height: 36px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .stats-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
+
+    .stat-card {
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+    }
+
+    .stat-label {
+      color: #666;
+      font-size: 14px;
+      line-height: 21px;
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      color: #1a1a1a;
+      font-size: 24px;
+      line-height: 36px;
+      font-weight: 700;
+    }
+
+    .rating-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .learning-section {
+      flex: 1;
+    }
+
+    .learning-card {
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+    }
+
+    .learning-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      list-style-type: none;
+    }
+
+    .learning-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .learning-text {
+      color: #000;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .icon {
+      flex-shrink: 0;
+    }
+
+    .check-icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+  <main class="course-container">
+    <div class="content-wrapper">
+      <header class="course-header">
+        <h1 class="course-title">Digital Marketing</h1>
+        <p class="course-description">
+          Master digital marketing strategies and tools to grow your online
+          presence with practical experience
+        </p>
+        <div class="course-features">
+          <div class="feature-item">
+            <div class="icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[24px] h-[24px] text-[#FFF]"
+              >
+                <path
+                  d="M12 8V12L15 15M21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4442 20.3149C14.3522 20.7672 13.1819 21 12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.3869 3 16.6761 3.94821 18.364 5.63604C20.0518 7.32387 21 9.61305 21 12Z"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </div>
+            <span class="feature-text">6 Hours</span>
+          </div>
+          <div class="feature-item">
+            <div class="icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[24px] h-[24px] text-[#FFF]"
+              >
+                <path
+                  d="M9 12L11 14L15 10M21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4442 20.3149C14.3522 20.7672 13.1819 21 12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.3869 3 16.6761 3.94821 18.364 5.63604C20.0518 7.32387 21 9.61305 21 12Z"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </div>
+            <span class="feature-text">Certificate Included</span>
+          </div>
+          <div class="feature-item">
+            <div class="icon">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[24px] h-[24px] text-[#FFF]"
+              >
+                <path
+                  d="M21 12C21 13.1819 20.7672 14.3522 20.3149 15.4442C19.8626 16.5361 19.1997 17.5282 18.364 18.364C17.5282 19.1997 16.5361 19.8626 15.4442 20.3149C14.3522 20.7672 13.1819 21 12 21C10.8181 21 9.64778 20.7672 8.55585 20.3149C7.46392 19.8626 6.47177 19.1997 5.63604 18.364C4.80031 17.5282 4.13738 16.5361 3.68508 15.4442C3.23279 14.3522 3 13.1819 3 12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.3869 3 16.6761 3.94821 18.364 5.63604C20.0518 7.32387 21 9.61305 21 12Z"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </div>
+            <span class="feature-text">Lifetime Access</span>
+          </div>
+        </div>
+      </header>
+
+      <nav class="tab-navigation">
+        <div class="tabs">
+          <div class="tab-item">
+            <span class="tab-active">Overview</span>
+            <div class="active-indicator"></div>
+          </div>
+          <div>
+            <span class="tab-inactive">Curriculum</span>
+          </div>
+          <div>
+            <span class="tab-inactive">Projects</span>
+          </div>
+        </div>
+      </nav>
+
+      <div class="course-content">
+        <section class="stats-section">
+          <h2 class="section-title">Course Statistics</h2>
+          <div class="stats-grid">
+            <article class="stat-card">
+              <h3 class="stat-label">Enrolled Students</h3>
+              <p class="stat-value">1,356</p>
+            </article>
+            <article class="stat-card">
+              <h3 class="stat-label">Course Rating</h3>
+              <div class="rating-wrapper">
+                <p class="stat-value">4.0</p>
+                <div>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-[20px] h-[20px]"
+                  >
+                    <path
+                      d="M9.04897 2.92696C9.34897 2.00596 10.652 2.00596 10.951 2.92696L12.021 6.21896C12.0863 6.41944 12.2134 6.59414 12.384 6.71806C12.5547 6.84199 12.7601 6.9088 12.971 6.90896H16.433C17.402 6.90896 17.804 8.14896 17.021 8.71896L14.221 10.753C14.05 10.877 13.9227 11.052 13.8573 11.2528C13.7919 11.4537 13.7918 11.67 13.857 11.871L14.927 15.163C15.227 16.084 14.172 16.851 13.387 16.281L10.587 14.247C10.4162 14.123 10.2105 14.0562 9.99947
+

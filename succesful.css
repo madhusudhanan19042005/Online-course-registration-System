@@ -1,0 +1,86 @@
+.success-checkmark {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
+    animation: checkmark-appear 0.8s ease-in-out forwards;
+  }
+
+  .success-checkmark .check-icon {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    box-sizing: content-box;
+    border: 4px solid #4318d1;
+  }
+
+  .success-checkmark .check-icon::before {
+    top: 48px;
+    left: 26px;
+    transform: rotate(45deg);
+    position: absolute;
+    content: "";
+    width: 12px;
+    height: 4px;
+    background-color: #4318d1;
+  }
+
+  .success-checkmark .check-icon::after {
+    top: 44px;
+    left: 32px;
+    transform: rotate(135deg);
+    position: absolute;
+    content: "";
+    width: 24px;
+    height: 4px;
+    background-color: #4318d1;
+  }
+
+  @keyframes checkmark-appear {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .success-card {
+    animation: card-appear 0.5s ease-out forwards;
+  }
+
+  @keyframes card-appear {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #a990e7;
+    animation: confetti-fall 3s ease-in-out infinite;
+  }
+
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-100px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(500px) rotate(360deg);
+      opacity: 0;
+    }
+  }

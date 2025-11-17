@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Online Course Registration System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: white;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #3A7BFF 0%, #5B6EFF 50%, #7A5CFF 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            top: 5rem;
+            left: 2.5rem;
+            width: 16rem;
+            height: 16rem;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .blob-2 {
+            bottom: 5rem;
+            right: 5rem;
+            width: 20rem;
+            height: 20rem;
+            background: rgba(216, 180, 254, 0.2);
+            animation-delay: -2s;
+        }
+
+        .blob-3 {
+            top: 50%;
+            left: 33%;
+            width: 12rem;
+            height: 12rem;
+            background: rgba(147, 197, 253, 0.15);
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 5rem 0;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .hero-text {
+            color: white;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 40rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.875rem;
+        }
+
+        .pulse-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.4s both, floatImage 6s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #3A7BFF 0%, #7A5CFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 42rem;
+            margin: 0 auto 4rem;
+        }
+
+        /* About Platform */
+        .about-platform {
+            background: linear-gradient(to bottom, #f9fafb 0%, white 100%);
+        }
+
+        .glass-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1.5rem;
+            background: linear-gradient(135deg, rgba(58, 123, 255, 0.2), rgba(122, 92, 255, 0.2));
+            filter: blur(40px);
+            z-index: -1;
+        }
+
+        .icon-box {
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(135deg, #3A7BFF 0%, #7A5CFF 100%);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: 0 10px 20px rgba(58, 123, 255, 0.3);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            background: linear-gradient(135deg, rgba(58, 123, 255, 0.1), rgba(122, 92, 255, 0.1));
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        /* Mission Vision */
+        .mission-vision-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .mission-vision-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .mv-card {
+            position: relative;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(229, 231, 235, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .mv-card-1 {
+            background: linear-gradient(135deg, rgb(239, 246, 255) 0%, rgba(219, 234, 254, 0.5) 100%);
+        }
+
+        .mv-card-2 {
+            background: linear-gradient(135deg, rgb(250, 245, 255) 0%, rgba(243, 232, 255, 0.5) 100%);
+        }
+
+        .mv-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .mv-card:hover .mv-icon {
+            transform: scale(1.1);
+        }
+
+        .mv-icon-1 {
+            background: linear-gradient(135deg, #3A7BFF 0%, #5B6EFF 100%);
+        }
+
+        .mv-icon-2 {
+            background: linear-gradient(135deg, #7A5CFF 0%, #A855F7 100%);
+        }
+
+        .mv-card h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .mv-card-1 h2 {
+            background: linear-gradient(135deg, #3A7BFF 0%, #5B6EFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mv-card-2 h2 {
+            background: linear-gradient(135deg, #7A5CFF 0%, #A855F7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: linear-gradient(to bottom, #f9fafb 0%, white 100%);
+        }
+
+        .why-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .why-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .why-card {
+            position: relative;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .why-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1rem;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .why-card:hover::before {
+            opacity: 1;
+        }
+
+        .why-icon-wrapper {
+            position: relative;
+            width: 3.5rem;
+            height: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-icon-glow {
+            position: absolute;
+            inset: 0;
+            border-radius: 0.75rem;
+            background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+            filter: blur(20px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .why-card:hover .why-icon-glow {
+            opacity: 0.5;
+        }
+
+        .why-icon {
+            position: relative;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 0.75rem;
+            background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .why-card:hover .why-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Journey Timeline */
+        .journey {
+            position: relative;
+        }
+
+        .journey::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(239, 246, 255, 0.3) 50%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .timeline {
+            position: relative;
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .timeline {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .timeline {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3A7BFF 0%, #5B6EFF 50%, #7A5CFF 100%);
+            border-radius: 9999px;
+            transform: translateY(-50%);
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .timeline::before {
+                display: block;
+            }
+        }
+
+        .timeline-card {
+            position: relative;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3A7BFF 0%, #7A5CFF 100%);
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        .timeline-icon {
+            width: 4rem;
+            height: 4rem;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #3A7BFF 0%, #7A5CFF 100%);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(58, 123, 255, 0.3);
+        }
+
+        .year-badge {
+            display: inline-block;
+            margin-bottom: 0.75rem;
+            padding: 0.25rem 1rem;
+            background: linear-gradient(135deg, rgba(58, 123, 255, 0.1), rgba(122, 92, 255, 0.1));
+            border-radius: 9999px;
+        }
+
+        .year-badge span {
+            background: linear-gradient(135deg, #3A7BFF 0%, #7A5CFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        /* Core Values */
+        .values {
+            background: linear-gradient(to bottom, #f9fafb 0%, white 100%);
+        }
+
+        .values-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .values-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .value-card {
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-card-1 { background: rgb(239, 246, 255); }
+        .value-card-2 { background: rgb(254, 252, 232); }
+        .value-card-3 { background: rgb(240, 253, 244); }
+        .value-card-4 { background: rgb(250, 245, 255); }
+        .value-card-5 { background: rgb(254, 242, 242); }
+
+        .value-icon {
+            width: 3rem;
+            height: 3rem;
+            margin: 0 auto 1rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover .value-icon {
+            transform: rotate(-10deg);
+        }
+
+        .value-icon-1 { background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%); }
+        .value-icon-2 { background: linear-gradient(135deg, #facc15 0%, #f97316 100%); }
+        .value-icon-3 { background: linear-gradient(135deg, #4ade80 0%, #059669 100%); }
+        .value-icon-4 { background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%); }
+        .value-icon-5 { background: linear-gradient(135deg, #f472b6 0%, #e11d48 100%); }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #111827 100%);
+            color: white;
+            padding: 4rem 1rem;
+            overflow: hidden;
+        }
+
+        .footer-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .footer-blob-1 {
+            top: 0;
+            left: 0;
+            width: 24rem;
+            height: 24rem;
+            background: rgba(58, 123, 255, 0.1);
+        }
+
+        .footer-blob-2 {
+            bottom: 0;
+            right: 0;
+            width: 24rem;
+            height: 24rem;
+            background: rgba(122, 92, 255, 0.1);
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .footer h3 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #3A7BFF 0%, #7A5CFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-text {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-link {
+            position: relative;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1) translateY(-3px);
+        }
+
+        .social-glow {
+            position: absolute;
+            inset: 0;
+            border-radius: 0.5rem;
+            filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover .social-glow {
+            opacity: 0.75;
+        }
+
+        .social-icon {
+            position: relative;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-facebook { background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); }
+        .social-twitter { background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%); }
+        .social-instagram { background: linear-gradient(135deg, #db2777 0%, #9333ea 100%); }
+        .social-linkedin { background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); }
+        .social-mail { background: linear-gradient(135deg, #ef4444 0%, #e11d48 100%); }
+
+        .footer-bottom {
+            position: relative;
+            z-index: 10;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        /* Icons (SVG) */
+        .icon {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .icon-white {
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .icon-blue {
+            stroke: #3A7BFF;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        p {
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>About Us</h1>
+                <p class="hero-subtitle">We make learning simpler, smarter, and accessible for everyone.</p>
+                <div class="hero-badge">
+                    <div class="pulse-dot"></div>
+                    <span>Trusted by 50,000+ students</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1759984782062-c90baecd0c93?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvbmxpbmUlMjBsZWFybmluZyUyMGlsbHVzdHJhdGlvbnxlbnwxfHx8fDE3NjMyMzIxNjd8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Online Learning">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Platform -->
+    <section class="about-platform">
+        <div class="container">
+            <div class="glass-card">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <div class="icon-box">
+                        <svg class="icon icon-white" viewBox="0 0 24 24">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                        </svg>
+                    </div>
+                    <h2 class="section-title">About Our Platform</h2>
+                    <p style="font-size: 1.125rem; color: #6b7280; max-width: 48rem; margin: 0 auto;">
+                        We are a leading online course registration platform dedicated to connecting passionate learners with world-class educational opportunities. Our platform bridges the gap between students and quality education, making it easier than ever to discover, enroll, and excel in courses that matter.
+                    </p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg class="icon icon-blue" viewBox="0 0 24 24">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </div>
+                        <h3>Quality Education</h3>
+                        <p style="font-size: 0.875rem;">Access to thousands of verified courses</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg class="icon icon-blue" viewBox="0 0 24 24">
+                                <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path>
+                            </svg>
+                        </div>
+                        <h3>Smart Platform</h3>
+                        <p style="font-size: 0.875rem;">Intuitive interface for seamless learning</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg class="icon icon-blue" viewBox="0 0 24 24">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </div>
+                        <h3>Student Success</h3>
+                        <p style="font-size: 0.875rem;">Dedicated support throughout your journey</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section>
+        <div class="container mission-vision-grid">
+            <div class="mv-card mv-card-1">
+                <div class="mv-icon mv-icon-1">
+                    <svg class="icon icon-white" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="6"></circle>
+                        <circle cx="12" cy="12" r="2"></circle>
+                    </svg>
+                </div>
+                <h2>Our Mission</h2>
+                <p style="color: #374151;">To simplify online course enrollment for every learner.</p>
+            </div>
+            <div class="mv-card mv-card-2">
+                <div class="mv-icon mv-icon-2">
+                    <svg class="icon icon-white" viewBox="0 0 24 24">
+                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </div>
+                <h2>Our Vision</h2>
+                <p style="color: #374151;">To provide a seamless and intuitive platform trusted by students and institutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <p class="section-subtitle">Experience the difference with our platform designed for modern learners</p>
+            <div class="why-grid">
+                <div class="why-card" style="--gradient-from: #facc15; --gradient-to: #f97316;">
+                    <div class="why-icon-wrapper">
+                        <div class="why-icon-glow"></div>
+                        <div class="why-icon">
+                            <svg class="icon icon-white" viewBox="0 0 24 24">
+                                <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Fast Registration</h3>
+                    <p style="font-size: 0.875rem;">Enroll in courses within minutes with our streamlined process</p>
+                </div>
+                <div class="why-card" style="--gradient-from: #3A7BFF; --gradient-to: #5B6EFF;">
+                    <div class="why-icon-wrapper">
+                        <div class="why-icon-glow"></div>
+                        <div class="why-icon">
+                            <svg class="icon icon-white" viewBox="0 0 24 24">
+                                <path d="m16 6 4 14"></path>
+                                <path d="M12 6v14"></path>
+                                <path d="M8 8v12"></path>
+                                <path d="M4 4v16"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Wide Course Library</h3>
+                    <p style="font-size: 0.875rem;">Access thousands of courses across diverse subjects and skills</p>
+                </div>
+                <div class="why-card" style="--gradient-from: #4ade80; --gradient-to: #059669;">
+                    <div class="why-icon-wrapper">
+                        <div class="why-icon-glow"></div>
+                        <div class="why-icon">
+                            <svg class="icon icon-white" viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>100% Secure Transactions</h3>
+                    <p style="font-size: 0.875rem;">Bank-grade encryption ensures your data is always protected</p>
+                </div>
+                <div class="why-card" style="--gradient-from: #7A5CFF; --gradient-to: #A855F7;">
+                    <div class="why-icon-wrapper">
+                        <div class="why-icon-glow"></div>
+                        <div class="why-icon">
+                            <svg class="icon icon-white" viewBox="0 0 24 24">
+                                <path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v2a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>24/7 Student Support</h3>
+                    <p style="font-size: 0.875rem;">Our dedicated team is always here to help you succeed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Journey -->
+    <section class="journey">
+        <div class="container">
+            <h2 class="section-title">Our Journey</h2>
+            <p class="section-subtitle">Every milestone tells a story of growth and commitment</p>
+            <div class="timeline">
+                <div class="timeline-card">
+                    <div class="timeline-icon">
+                        <svg class="icon icon-white" viewBox="0 0 24 24">
+                            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                        </svg>
+                    </div>
+                    <div class="year-badge"><span>2020</span></div>
+                    <h3>Platform Launch</h3>
+                    <p style="font-size: 0.875rem;">Started with a vision to democratize education</p>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-icon">
+                        <svg class="icon icon-white" viewBox="0 0 24 24">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="year-badge"><span>2021</span></div>
+                    <h3>10K Students</h3>
+                    <p style="font-size: 0.875rem;">Reached our first major milestone of learners</p>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-icon">
+                        <svg class="icon icon-white" viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="6"></circle>
+                            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                        </svg>
+                    </div>
+                    <div class="year-badge"><span>2023</span></div>
+                    <h3>Industry Recognition</h3>
+                    <p style="font-size: 0.875rem;">Awarded 'Best EdTech Platform of the Year'</p>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-icon">
+                        <svg class="icon icon-white" viewBox="0 0 24 24">
+                            <path d="m22 12-4-4v3H3v2h15v3z"></path>
+                        </svg>
+                    </div>
+                    <div class="year-badge"><span>2025</span></div>
+                    <h3>Global Expansion</h3>
+                    <p style="font-size: 0.875rem;">Now serving 50K+ students across 30 countries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="values">
+        <div class="container">
+            <h2 class="section-title">Core Values</h2>
+            <p class="section-subtitle">The principles that guide everything we do</p>
+            <div class="values-grid">
+                <div class="value-card value-card-1">
+                    <div class="value-icon value-icon-1">
+                        <svg class="icon icon-white" viewBox="0 0 24 24">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </div>
+                    <h3 style="text-align: center; font-size: 1rem;">Transparency</h3>
+                    <p style="font-size: 0.75rem; text-align: center;">Open and honest in everything we do</p>
+                </div>
+                <div class="value-card value-card-2">
+                    <div class="value-icon value-icon-2">
+                        <svg class="icon icon-white" viewBox="0 0 24 24">
+                            <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
+                            <path d="M9 18h6"></path>
+                            <path d="M10 22h4"></path>
+                        </svg>
+                    </div>
+                    <h3 style="text-align: center; font-size: 1rem;">Innovation</h3>
+                    <p style="font-size: 0.75rem; text-align: center;">Constantly evolving and improving</p>
+                </div>
+                <div class="value-card value-card-3">
+                    <div class="value-icon value-icon-3">
+                        <svg class="icon icon-white" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                            <path d="M2 12h20"></path>
+                        </svg>
+                    </div>
+                    <h3 style="text-align: center; font-size: 1rem;">Accessibility</h3>
+                    <p style="font-size: 0.75rem; text-align: center;">Education for everyone, everywhere</p>
+                </div>
+                <div class="value-card value-card-4">
+                    <div class="value-icon value-icon-4">
+                        <svg class="icon icon-white" viewBox="0 0 24 24">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3 style="text-align: center; font-size: 1rem;">Quality</h3>
+                    <p style="font-size: 0.75rem; text-align: center;">Excellence in every course and service</p>
+                </div>
+                <div class="value-card value-card-5">
+                    <div class="value-icon value-icon-5">
+                        <svg class="icon icon-white" viewBox="0 0 24 24">
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                        </svg>
+                    </div>
+                    <h3 style="text-align: center; font-size: 1rem;">Student-Centricity</h3>
+                    <p style="font-size: 0.75rem; text-align: center;">Your success is our mission</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-blob footer-blob-1"></div>
+        <div class="footer-blob footer-blob-2"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>CourseHub</h3>
+                    <p class="footer-text">Making learning simpler, smarter, and accessible for everyone. Join thousands of students on their educational journey.</p>
+                </div>
+                <div>
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-link">
+                            <div class="social-glow social-facebook"></div>
+                            <div class="social-icon social-facebook">
+                                <svg style="width: 1.25rem; height: 1.25rem;" class="icon-white" viewBox="0 0 24 24">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                            </div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <div class="social-glow social-twitter"></div>
+                            <div class="social-icon social-twitter">
+                                <svg style="width: 1.25rem; height: 1.25rem;" class="icon-white" viewBox="0 0 24 24">
+                                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                                </svg>
+                            </div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <div class="social-glow social-instagram"></div>
+                            <div class="social-icon social-instagram">
+                                <svg style="width: 1.25rem; height: 1.25rem;" class="icon-white" viewBox="0 0 24 24">
+                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                                </svg>
+                            </div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <div class="social-glow social-linkedin"></div>
+                            <div class="social-icon social-linkedin">
+                                <svg style="width: 1.25rem; height: 1.25rem;" class="icon-white" viewBox="0 0 24 24">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect width="4" height="12" x="2" y="9"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </div>
+                        </a>
+                        <a href="#" class="social-link">
+                            <div class="social-glow social-mail"></div>
+                            <div class="social-icon social-mail">
+                                <svg style="width: 1.25rem; height: 1.25rem;" class="icon-white" viewBox="0 0 24 24">
+                                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-text">support@coursehub.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 CourseHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.glass-card, .mv-card, .why-card, .timeline-card, .value-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Add parallax effect to hero blobs
+        document.addEventListener('mousemove', (e) => {
+            const blobs = document.querySelectorAll('.blob');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            blobs.forEach((blob, index) => {
+                const speed = (index + 1) * 20;
+                const xOffset = (x - 0.5) * speed;
+                const yOffset = (y - 0.5) * speed;
+                blob.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

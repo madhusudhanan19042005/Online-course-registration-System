@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>Welcome Back 👋</h2>
+    <p>Sign in to continue</p>
+
+    <div class="google-btn" onclick="googleSignIn()">
+      <img src="google-removebg-preview.png" alt="Google logo">
+      <span>Sign in with Google</span>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDVKVnsCwf3gylkv3LYPYWc25h2MA_rVlM",
+      authDomain: "my-project-fe61b.firebaseapp.com",
+      projectId: "my-project-fe61b",
+      storageBucket: "my-project-fe61b.appspot.com",
+      messagingSenderId: "624148868422",
+      appId: "1:624148868422:web:12d77de9d7be0fed360947",
+      measurementId: "G-95PFBL9LW8"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    window.googleSignIn = () => {
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const user = result.user;
+
+      // ✅ Send user data to backend (Node.js)
+      fetch('http://localhost:3000/save-user', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          uid: user.uid,
+          name: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert(`Welcome, ${user.displayName}`);
+        console.log("User saved to DB:", data);
+      })
+      .catch(err => {
+        console.error('❌ Error sending data to backend:', err);
+        alert('Could not save user to database');
+      });
+
+    })
+    .catch((error) => {
+      console.error(error);
+      alert('Sign-in failed: ' + error.message);
+    });
+};
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI/UX Design Application Form</title>
+    <link rel="stylesheet" href="uiux.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <main
+      x-data="{
+        formData: {
+          name: '',
+          education: '',
+          gender: '',
+          email: '',
+          contact: ''
+        },
+        errors: {},
+        submitForm() {
+          this.errors = {};
+          let hasError = false;
+
+          if(!this.formData.name.trim()) {
+            this.errors.name = 'Name is required';
+            hasError = true;
+          }
+
+          if(!this.formData.education.trim()) {
+            this.errors.education = 'Education is required';
+            hasError = true;
+          }
+
+          if(!this.formData.gender) {
+            this.errors.gender = 'Please select gender';
+            hasError = true;
+          }
+
+          if(!this.formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.formData.email)) {
+            this.errors.email = 'Valid email is required';
+            hasError = true;
+          }
+
+          if(!this.formData.contact.trim() || !/^\d{10}$/.test(this.formData.contact)) {
+            this.errors.contact = 'Valid 10-digit contact number is required';
+            hasError = true;
+          }
+
+          if(!hasError) {
+            alert('Form submitted successfully!');
+          }
+        },
+        resetForm() {
+          this.formData = {
+            name: '',
+            education: '',
+            gender: '',
+            email: '',
+            contact: ''
+          };
+          this.errors = {};
+        }
+      }"
+      class="form-container"
+    >
+      <section class="form-card">
+        <header class="form-header">
+          <div class="header-title">
+            <span class="emoji">🎨</span>
+            <h1 class="title">UI/UX Design</h1>
+          </div>
+          <p class="description">
+            Master the art of creating beautiful and functional digital
+            experiences. Complete the form below to begin your journey in UI/UX
+            design.
+          </p>
+        </header>
+
+        <form x-on:submit.prevent="submitForm()">
+          <div class="form-fields">
+            <div class="form-group">
+              <label class="form-label" for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                x-model="formData.name"
+                class="form-input"
+                placeholder="Enter your full name"
+              />
+              <span x-show="errors.name" x-text="errors.name" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="education">Education</label>
+              <input
+                type="text"
+                id="education"
+                x-model="formData.education"
+                class="form-input"
+                placeholder="Your highest qualification"
+              />
+              <span x-show="errors.education" x-text="errors.education" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Gender</label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="male" name="gender" value="male" x-model="formData.gender" class="radio-input" />
+                  <label for="male" class="radio-label">Male</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="female" name="gender" value="female" x-model="formData.gender" class="radio-input" />
+                  <label for="female" class="radio-label">Female</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="other" name="gender" value="other" x-model="formData.gender" class="radio-input" />
+                  <label for="other" class="radio-label">Other</label>
+                </div>
+              </div>
+              <span x-show="errors.gender" x-text="errors.gender" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                x-model="formData.email"
+                class="form-input"
+                placeholder="your.email@example.com"
+              />
+              <span x-show="errors.email" x-text="errors.email" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact">Contact Number</label>
+              <input
+                type="tel"
+                id="contact"
+                x-model="formData.contact"
+                class="form-input"
+                placeholder="10-digit mobile number"
+              />
+              <span x-show="errors.contact" x-text="errors.contact" class="error-message"></span>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="submit-button">Submit Application</button>
+              <button type="button" class="reset-button" x-on:click="resetForm()">Reset Form</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

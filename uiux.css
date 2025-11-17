@@ -1,0 +1,156 @@
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 32px;
+  }
+  
+  @media (max-width: 640px) {
+    body {
+      padding: 16px;
+    }
+  }
+  
+  .form-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .form-card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 32px;
+  }
+  
+  @media (max-width: 640px) {
+    .form-card {
+      padding: 24px;
+    }
+  }
+  
+  .form-header {
+    margin-bottom: 32px;
+  }
+  
+  .header-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .emoji {
+    font-size: 32px;
+  }
+  
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #111;
+    margin: 0;
+  }
+  
+  .description {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+  }
+  
+  .form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+  }
+  
+  .form-input:focus {
+    border-color: #4318d1;
+  }
+  
+  .radio-group {
+    display: flex;
+    gap: 24px;
+  }
+  
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .radio-input {
+    width: 16px;
+    height: 16px;
+    accent-color: #4318d1;
+  }
+  
+  .radio-label {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .error-message {
+    font-size: 12px;
+    color: #dc2626;
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  
+  .submit-button {
+    flex: 1;
+    background-color: #4318d1;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #3612a9;
+  }
+  
+  .reset-button {
+    flex: 1;
+    background-color: white;
+    color: #4318d1;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: 1px solid #4318d1;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .reset-button:hover {
+    background-color: #f8f9fa;
+  }
+  

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SkillSphere</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: white;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #3A7BFF 0%, #5B6EFF 50%, #7A5CFF 100%);
+            padding: 4rem 1rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            top: 5rem;
+            left: 2.5rem;
+            width: 16rem;
+            height: 16rem;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .blob-2 {
+            bottom: 5rem;
+            right: 5rem;
+            width: 20rem;
+            height: 20rem;
+            background: rgba(216, 180, 254, 0.2);
+            animation-delay: -2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(30px, -30px); }
+            66% { transform: translate(-20px, 20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+        }
+
+        .hero-icon {
+            width: 5rem;
+            height: 5rem;
+            margin: 0 auto 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .contact-info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info-card svg {
+            margin: 0 auto 0.75rem;
+        }
+
+        .contact-info-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info-card p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Main Section */
+        .main-section {
+            padding: 5rem 1rem;
+            background: linear-gradient(to bottom, #f9fafb 0%, white 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-decoration {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .bg-decoration-1 {
+            top: 5rem;
+            right: 0;
+            width: 18rem;
+            height: 18rem;
+            background: rgba(216, 180, 254, 0.3);
+        }
+
+        .bg-decoration-2 {
+            bottom: 5rem;
+            left: 0;
+            width: 18rem;
+            height: 18rem;
+            background: rgba(147, 197, 253, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .content-grid {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Image Section */
+        .image-section {
+            position: relative;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .image-wrapper {
+            position: relative;
+            animation: floatImage 6s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .image-glow {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(58, 123, 255, 0.2), rgba(122, 92, 255, 0.2));
+            border-radius: 1.5rem;
+            filter: blur(40px);
+        }
+
+        .image-wrapper img {
+            position: relative;
+            width: 100%;
+            height: auto;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: -2rem;
+            right: -2rem;
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid #e5e7eb;
+            animation: floatBadge 4s ease-in-out infinite;
+        }
+
+        @keyframes floatBadge {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        .badge-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .badge-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #4ade80 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .badge-text p:first-child {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .badge-text p:last-child {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        /* Form Section */
+        .form-section {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+        }
+
+        .form-card h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #3A7BFF 0%, #7A5CFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .form-card > p {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.875rem;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+        }
+
+        .textarea-icon {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            color: #9ca3af;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #3A7BFF;
+            box-shadow: 0 0 0 3px rgba(58, 123, 255, 0.1);
+        }
+
+        textarea {
+            resize: none;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3A7BFF 0%, #7A5CFF 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 10px 20px rgba(58, 123, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(58, 123, 255, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .submit-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #111827 100%);
+            color: white;
+            padding: 4rem 1rem;
+            overflow: hidden;
+        }
+
+        .footer-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .footer-blob-1 {
+            top: 0;
+            left: 0;
+            width: 24rem;
+            height: 24rem;
+            background: rgba(58, 123, 255, 0.1);
+        }
+
+        .footer-blob-2 {
+            bottom: 0;
+            right: 0;
+            width: 24rem;
+            height: 24rem;
+            background: rgba(122, 92, 255, 0.1);
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .footer h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #3A7BFF 0%, #7A5CFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-text {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            max-width: 36rem;
+            margin: 0 auto 2rem;
+        }
+
+        .footer h4 {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            position: relative;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: scale(1.15) translateY(-5px);
+        }
+
+        .social-glow {
+            position: absolute;
+            inset: 0;
+            border-radius: 0.75rem;
+            filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover .social-glow {
+            opacity: 0.75;
+        }
+
+        .social-icon {
+            position: relative;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .facebook { background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); }
+        .instagram { background: linear-gradient(135deg, #db2777 0%, #9333ea 100%); }
+        .youtube { background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); }
+        .telegram { background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%); }
+
+        .copyright {
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            margin-top: 3rem;
+        }
+
+        .copyright p {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .copyright p:last-child {
+            color: #6b7280;
+            font-size: 0.75rem;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #10b981;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #10b981;
+        }
+
+        .toast-text {
+            color: #111827;
+            font-weight: 500;
+        }
+
+        /* Icons */
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .icon-lg {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        svg {
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .floating-badge {
+                position: static;
+                margin-top: 2rem;
+            }
+
+            .form-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <svg class="toast-icon" viewBox="0 0 24 24">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <span class="toast-text">Message sent successfully! We'll get back to you soon.</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-icon">
+                <svg class="icon-lg" style="color: white;" viewBox="0 0 24 24">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+            </div>
+            <h1>Contact Us</h1>
+            <p class="hero-subtitle">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            
+            <div class="contact-info-grid">
+                <div class="contact-info-card">
+                    <svg class="icon-lg" style="color: white; display: block;" viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <h3>Call Us</h3>
+                    <p>+1 (555) 123-4567</p>
+                </div>
+                <div class="contact-info-card">
+                    <svg class="icon-lg" style="color: white; display: block;" viewBox="0 0 24 24">
+                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                    <h3>Email Us</h3>
+                    <p>hello@skillsphere.com</p>
+                </div>
+                <div class="contact-info-card">
+                    <svg class="icon-lg" style="color: white; display: block;" viewBox="0 0 24 24">
+                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <h3>Visit Us</h3>
+                    <p>123 Learning St, Education City</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Section -->
+    <section class="main-section">
+        <div class="bg-decoration bg-decoration-1"></div>
+        <div class="bg-decoration bg-decoration-2"></div>
+        
+        <div class="container">
+            <div class="content-grid">
+                <!-- Image Section -->
+                <div class="image-section">
+                    <div class="image-wrapper">
+                        <div class="image-glow"></div>
+                        <img src="https://images.unsplash.com/photo-1652736719079-b12b89b8ffa0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXN0b21lciUyMHN1cHBvcnQlMjB0ZWFtfGVufDF8fHx8MTc2MzIyNjYzOHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Contact Support">
+                    </div>
+                    <div class="floating-badge">
+                        <div class="badge-content">
+                            <div class="badge-icon">
+                                <svg class="icon" style="color: white;" viewBox="0 0 24 24">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="badge-text">
+                                <p>Response Time</p>
+                                <p>Under 24 Hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Section -->
+                <div class="form-section">
+                    <div class="form-card">
+                        <h2>Send us a Message</h2>
+                        <p>Fill out the form below and our team will get back to you shortly.</p>
+                        
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon icon" viewBox="0 0 24 24">
+                                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon icon" viewBox="0 0 24 24">
+                                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                    </svg>
+                                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Contact Number *</label>
+                                <div class="input-wrapper">
+                                    <svg class="input-icon icon" viewBox="0 0 24 24">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                    </svg>
+                                    <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <div class="input-wrapper">
+                                    <svg class="textarea-icon icon" viewBox="0 0 24 24">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                    <textarea id="message" name="message" placeholder="Tell us how we can help you..." required></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <span>Send Message</span>
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="m22 2-7 20-4-9-9-4Z"></path>
+                                    <path d="M22 2 11 13"></path>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-blob footer-blob-1"></div>
+        <div class="footer-blob footer-blob-2"></div>
+        
+        <div class="footer-content">
+            <h3>SkillSphere</h3>
+            <p class="footer-text">Empowering learners worldwide with quality education and seamless course registration.</p>
+            
+            <h4>Connect With Us</h4>
+            <div class="social-icons">
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <div class="social-glow facebook"></div>
+                    <div class="social-icon facebook">
+                        <svg style="width: 1.75rem; height: 1.75rem; color: white;" viewBox="0 0 24 24">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </div>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <div class="social-glow instagram"></div>
+                    <div class="social-icon instagram">
+                        <svg style="width: 1.75rem; height: 1.75rem; color: white;" viewBox="0 0 24 24">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                        </svg>
+                    </div>
+                </a>
+                <a href="#" class="social-link" aria-label="YouTube">
+                    <div class="social-glow youtube"></div>
+                    <div class="social-icon youtube">
+                        <svg style="width: 1.75rem; height: 1.75rem; color: white;" viewBox="0 0 24 24">
+                            <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
+                            <path d="m10 15 5-3-5-3z"></path>
+                        </svg>
+                    </div>
+                </a>
+                <a href="#" class="social-link" aria-label="Telegram">
+                    <div class="social-glow telegram"></div>
+                    <div class="social-icon telegram">
+                        <svg style="width: 1.75rem; height: 1.75rem; color: white;" viewBox="0 0 24 24">
+                            <path d="m22 2-7 20-4-9-9-4Z"></path>
+                            <path d="M22 2 11 13"></path>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="copyright">
+                <p>© <span id="year"></span> SkillSphere. All rights reserved.</p>
+                <p>Designed with ❤️ for learners everywhere</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Form submission
+        const form = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show toast notification
+            toast.classList.add('show');
+            
+            // Reset form
+            form.reset();
+            
+            // Hide toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        });
+
+        // Parallax effect on hero blobs
+        document.addEventListener('mousemove', (e) => {
+            const blobs = document.querySelectorAll('.blob');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            blobs.forEach((blob, index) => {
+                const speed = (index + 1) * 20;
+                const xOffset = (x - 0.5) * speed;
+                const yOffset = (y - 0.5) * speed;
+                blob.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe animated sections
+        const imageSection = document.querySelector('.image-section');
+        const formSection = document.querySelector('.form-section');
+        
+        if (imageSection) observer.observe(imageSection);
+        if (formSection) observer.observe(formSection);
+    </script>
+</body>
+</html>

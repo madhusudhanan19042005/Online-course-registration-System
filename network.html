@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Network Fundamentals Course Registration</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main
+      x-data="{
+      formData: {
+        name: '',
+        education: '',
+        gender: '',
+        email: '',
+        contact: ''
+      },
+      errors: {},
+      submitForm() {
+        this.errors = {};
+        let hasError = false;
+
+        if(!this.formData.name.trim()) {
+          this.errors.name = 'Name is required';
+          hasError = true;
+        }
+
+        if(!this.formData.education.trim()) {
+          this.errors.education = 'Education is required';
+          hasError = true;
+        }
+
+        if(!this.formData.gender) {
+          this.errors.gender = 'Please select gender';
+          hasError = true;
+        }
+
+        if(!this.formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.formData.email)) {
+          this.errors.email = 'Valid email is required';
+          hasError = true;
+        }
+
+        if(!this.formData.contact.trim() || !/^\d{10}$/.test(this.formData.contact)) {
+          this.errors.contact = 'Valid 10-digit contact number is required';
+          hasError = true;
+        }
+
+        if(!hasError) {
+          alert('Form submitted successfully!');
+        }
+      },
+      resetForm() {
+        this.formData = {
+          name: '',
+          education: '',
+          gender: '',
+          email: '',
+          contact: ''
+        };
+        this.errors = {};
+      }
+    }"
+      class="min-h-screen w-screen bg-[#f8f9fa] font-[Inter] p-[32px] max-sm:p-[16px]"
+    >
+      <div class="max-w-[600px] mx-auto">
+        <article
+          class="bg-white rounded-[16px] shadow-[0_4px_12px_rgba(0,0,0,0.1)] p-[32px] max-sm:p-[24px]"
+        >
+          <header class="mb-[32px]">
+            <div class="flex items-center gap-[12px] mb-[16px]">
+              <div
+                class="w-[48px] h-[48px] bg-[#4318D1] rounded-[12px] flex items-center justify-center"
+              >
+                <svg
+                  class="w-[28px] h-[28px] text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                  ></path>
+                </svg>
+              </div>
+              <h1 class="text-[32px] font-bold text-[#111]">
+                Network Fundamentals
+              </h1>
+            </div>
+            <p class="text-[16px] text-[#555] mb-[24px]">
+              Build a strong foundation in networking concepts, protocols, and
+              infrastructure. Join our comprehensive networking course designed
+              for future network professionals.
+            </p>
+            <section
+              class="grid grid-cols-2 gap-[16px] bg-[#f8f9fa] rounded-[12px] p-[24px] border-l-[4px] border-[#4318D1] max-sm:grid-cols-1"
+            >
+              <div class="flex flex-col gap-[8px]">
+                <div
+                  class="flex items-center gap-[8px] text-[#111] font-medium"
+                >
+                  <svg
+                    class="w-[20px] h-[20px] text-[#4318D1]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    ></path>
+                  </svg>
+                  <span>Course Benefits</span>
+                </div>
+                <ul class="text-[14px] text-[#555] flex flex-col gap-[4px]">
+                  <li>• Industry-recognized certification</li>
+                  <li>• Hands-on lab exercises</li>
+                  <li>• Real-world case studies</li>
+                </ul>
+              </div>
+              <div class="flex flex-col gap-[8px]">
+                <div
+                  class="flex items-center gap-[8px] text-[#111] font-medium"
+                >
+                  <svg
+                    class="w-[20px] h-[20px] text-[#4318D1]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    ></path>
+                  </svg>
+                  <span>Key Topics</span>
+                </div>
+                <ul class="text-[14px] text-[#555] flex flex-col gap-[4px]">
+                  <li>• TCP/IP Protocol Suite</li>
+                  <li>• Network Security</li>
+                  <li>• Routing & Switching</li>
+                </ul>
+              </div>
+            </section>
+          </header>
+
+          <form x-on:submit="event.preventDefault(); submitForm()">
+            <div class="flex flex-col gap-[24px]">
+              <div class="flex flex-col gap-[8px]">
+                <label class="text-[14px] font-medium text-[#333]" for="name"
+                  >Full Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  x-model="formData.name"
+                  class="w-full px-[16px] py-[12px] rounded-[8px] border-[1px] border-[#ddd] focus:border-[#4318D1] outline-none transition-all duration-300"
+                  placeholder="Enter your full name"
+                />
+                <span
+                  x-show="errors.name"
+                  x-text="errors.name"
+                  class="text-[12px] text-[#dc2626]"
+                ></span>
+              </div>
+
+              <div class="flex flex-col gap-[8px]">
+                <label
+                  class="text-[14px] font-medium text-[#333]"
+                  for="education"
+                  >Education</label
+                >
+                <input
+                  type="text"
+                  id="education"
+                  x-model="formData.education"
+                  class="w-full px-[16px] py-[12px] rounded-[8px] border-[1px] border-[#ddd] focus:border-[#4318D1] outline-none transition-all duration-300"
+                  placeholder="Your highest qualification"
+                />
+                <span
+                  x-show="errors.education"
+                  x-text="errors.education"
+                  class="text-[12px] text-[#dc2626]"
+                ></span>
+              </div>
+
+              <fieldset class="flex flex-col gap-[8px]">
+                <legend class="text-[14px] font-medium text-[#333]">
+                  Gender
+                </legend>
+                <div class="flex gap-[24px]">
+                  <div class="flex items-center gap-[8px]">
+                    <input
+                      type="radio"
+                      id="male"
+                      name="gender"
+                      value="male"
+                      x-model="formData.gender"
+                      class="w-[16px] h-[16px] accent-[#4318D1]"
+                    />
+                    <label for="male" class="text-[14px] text-[#333]"
+                      >Male</label
+                    >
+                  </div>
+                  <div class="flex items-center gap-[8px]">
+                    <input
+                      type="radio"
+                      id="female"
+                      name="gender"
+                      value="female"
+                      x-model="formData.gender"
+                      class="w-[16px] h-[16px] accent-[#4318D1]"
+                    />
+                    <label for="female" class="text-[14px] text-[#333]"
+                      >Female</label
+                    >
+                  </div>
+                  <div class="flex items-center gap-[8px]">
+                    <input
+                      type="radio"
+                      id="other"
+                      name="gender"
+                      value="other"
+                      x-model="formData.gender"
+                      class="w-[16px] h-[16px] accent-[#4318D1]"
+                    />
+                    <label for="other" class="text-[14px] text-[#333]"
+                      >Other</label
+                    >
+                  </div>
+                </div>
+                <span
+                  x-show="errors.gender"
+                  x-text="errors.gender"
+                  class="text-[12px] text-[#dc2626]"
+                ></span>
+              </fieldset>
+
+              <div class="flex flex-col gap-[8px]">
+                <label class="text-[14px] font-medium text-[#333]" for="email"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  x-model="formData.email"
+                  class="w-full px-[16px] py-[12px] rounded-[8px] border-[1px] border-[#ddd] focus:border-[#4318D1] outline-none transition-all duration-300"
+                  placeholder="your.email@example.com"
+                />
+                <span
+                  x-show="errors.email"
+                  x-text="errors.email"
+                  class="text-[12px] text-[#dc2626]"
+                ></span>
+              </div>
+
+              <div class="flex flex-col gap-[8px]">
+                <label class="text-[14px] font-medium text-[#333]" for="contact"
+                  >Contact Number</label
+                >
+                <input
+                  type="tel"
+                  id="contact"
+                  x-model="formData.contact"
+                  class="w-full px-[16px] py-[12px] rounded-[8px] border-[1px] border-[#ddd] focus:border-[#4318D1] outline-none transition-all duration-300"
+                  placeholder="10-digit mobile number"
+                />
+                <span
+                  x-show="errors.contact"
+                  x-text="errors.contact"
+                  class="text-[12px] text-[#dc2626]"
+                ></span>
+              </div>
+
+              <div class="flex gap-[16px] mt-[16px]">
+                <button
+                  type="submit"
+                  class="flex-1 bg-[#4318D1] text-white py-[14px] px-[24px] rounded-[8px] font-medium transition-all duration-300 submit-button"
+                  x-on:mouseenter="$event.target.style.backgroundColor = '#3612A9'"
+                  x-on:mouseleave="$event.target.style.backgroundColor = '#4318D1'"
+                >
+                  Start Networking Journey
+                </button>
+                <button
+                  type="button"
+                  class="flex-1 bg-white text-[#4318D1] border-[1px] border-[#4318D1] py-[14px] px-[24px] rounded-[8px] font-medium transition-all duration-300 reset-button"
+                  x-on:click="resetForm()"
+                  x-on:mouseenter="$event.target.style.backgroundColor = '#f8f9fa'"
+                  x-on:mouseleave="$event.target.style.backgroundColor = '#fff'"
+                >
+                  Reset Form
+                </button>
+              </div>
+            </div>
+          </form>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>

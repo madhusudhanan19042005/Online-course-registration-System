@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Successful</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="succesful.css" />
+  </head>
+  <body
+    class="bg-[#f8f9ff] font-[Inter] min-h-screen flex items-center justify-center p-4"
+  >
+    <div
+      id="confetti-container"
+      class="fixed inset-0 pointer-events-none overflow-hidden"
+    ></div>
+
+    <main
+      class="success-card max-w-[600px] w-full bg-white rounded-[20px] shadow-[0_10px_30px_rgba(67,24,209,0.1)] p-8 text-center relative"
+    >
+      <div class="success-checkmark">
+        <div class="check-icon"></div>
+      </div>
+
+      <h1 class="text-[32px] font-bold text-[#000] mt-6 mb-4">
+        Registration Successful!
+      </h1>
+
+      <p class="text-[18px] text-[#666] mb-8">
+        Your payment information has been securely registered. Thank you for
+        your trust.
+      </p>
+
+      <div class="bg-[#f8f9ff] rounded-[12px] p-6 mb-8">
+        <h2 class="text-[18px] font-semibold text-[#000] mb-4">What's Next?</h2>
+        <ul class="text-left text-[16px] text-[#666] space-y-3">
+          <li class="flex items-start">
+            <span
+              class="inline-block w-6 h-6 rounded-full bg-[#4318D1] text-white flex items-center justify-center mr-3 mt-0.5"
+              >1</span
+            >
+            <span>You'll receive a confirmation email shortly</span>
+          </li>
+          <li class="flex items-start">
+            <span
+              class="inline-block w-6 h-6 rounded-full bg-[#4318D1] text-white flex items-center justify-center mr-3 mt-0.5"
+              >2</span
+            >
+            <span
+              >Your payment method is now available for future
+              transactions</span
+            >
+          </li>
+          <li class="flex items-start">
+            <span
+              class="inline-block w-6 h-6 rounded-full bg-[#4318D1] text-white flex items-center justify-center mr-3 mt-0.5"
+              >3</span
+            >
+            <span
+              >You can manage your payment methods in your account
+              settings</span
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="payment-registration.html"
+          class="py-4 px-6 bg-white border-2 border-[#4318D1] text-[#4318D1] rounded-[8px] font-bold text-[16px] transition-all duration-200 hover:bg-[#f8f9ff] hover:shadow-md"
+        >
+          Register Another Card
+        </a>
+        <a
+          href="#"
+          class="py-4 px-6 bg-[#4318D1] text-white rounded-[8px] font-bold text-[16px] transition-all duration-200 hover:bg-[#3b14b9] hover:shadow-md"
+        >
+          Go to Dashboard
+        </a>
+      </div>
+    </main>
+  </body>
+</html>
+
+

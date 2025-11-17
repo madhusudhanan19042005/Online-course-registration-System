@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .success-icon-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #d4f4dd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .checkmark {
+            width: 40px;
+            height: 40px;
+            stroke: #10b981;
+            stroke-width: 3;
+            fill: none;
+        }
+
+        .checkmark-path {
+            stroke-dasharray: 50;
+            stroke-dashoffset: 50;
+            animation: draw 0.5s ease-out 0.3s forwards;
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        .details-section {
+            background: #f7fafc;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        .detail-value {
+            color: #1a202c;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border: 1px solid #93c5fd;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        .info-box p {
+            color: #1e40af;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .button-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .button-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .button-secondary {
+            background: white;
+            color: #4a5568;
+            border: 2px solid #e2e8f0;
+        }
+
+        .button-secondary:hover {
+            background: #f7fafc;
+            border-color: #cbd5e0;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-text {
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="success-icon-wrapper">
+                <div class="success-icon">
+                    <svg class="checkmark" viewBox="0 0 52 52">
+                        <path class="checkmark-path" d="M14 27l7.5 7.5L38 18"/>
+                    </svg>
+                </div>
+            </div>
+            <h1>Payment Successful!</h1>
+            <p>Your payment has been processed successfully</p>
+        </div>
+
+        <div class="details-section">
+            <div class="detail-row">
+                <span class="detail-label">Order Number</span>
+                <span class="detail-value" id="orderNumber">-</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Date</span>
+                <span class="detail-value" id="paymentDate">-</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Amount Paid</span>
+                <span class="detail-value" id="amountPaid">-</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Payment Method</span>
+                <span class="detail-value" id="paymentMethod">-</span>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <p>
+                A confirmation email has been sent to your registered email address with your receipt and registration details.
+            </p>
+        </div>
+
+        <button class="button button-primary" onclick="viewReceipt()">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-width="2"/>
+            </svg>
+            View Receipt
+        </button>
+
+        <button class="button button-secondary" onclick="downloadInvoice()">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-width="2"/>
+            </svg>
+            Download Invoice
+        </button>
+
+        <div class="footer-text">
+            <p>Thank you for your purchase! You can now access all premium features.</p>
+        </div>
+    </div>
+
+    <script>
+        // Generate random order number
+        function generateOrderNumber() {
+            return 'ORD-' + Math.random().toString(36).substring(2, 9).toUpperCase();
+        }
+
+        // Format date
+        function formatDate(date) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        // Load payment data from localStorage
+        function loadPaymentData() {
+            const paymentData = JSON.parse(localStorage.getItem('paymentData') || '{}');
+            
+            document.getElementById('orderNumber').textContent = generateOrderNumber();
+            document.getElementById('paymentDate').textContent = formatDate(new Date());
+            document.getElementById('amountPaid').textContent = '$' + (paymentData.amount || '99.00');
+            document.getElementById('paymentMethod').textContent = '•••• ' + (paymentData.cardNumber || '3456');
+        }
+
+        // View receipt function
+        function viewReceipt() {
+            alert('Receipt will be sent to your email address.');
+        }
+
+        // Download invoice function
+        function downloadInvoice() {
+            const paymentData = JSON.parse(localStorage.getItem('paymentData') || '{}');
+            const amount = paymentData.amount || '99.00';
+            const orderNumber = document.getElementById('orderNumber').textContent;
+            const date = document.getElementById('paymentDate').textContent;
+            
+            // Create a simple text invoice
+            const invoiceContent = `
+INVOICE
+========================================
+
+Order Number: ${orderNumber}
+Date: ${date}
+Amount Paid: $${amount}
+Payment Method: Credit Card
+
+Thank you for your purchase!
+            `;
+
+            // Create blob and download
+            const blob = new Blob([invoiceContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `invoice-${orderNumber}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Load data when page loads
+        window.addEventListener('load', loadPaymentData);
+    </script>
+</body>
+</html>

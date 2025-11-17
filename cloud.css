@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  /* Page container */
+  .page-container {
+    min-height: 100vh;
+    width: 100%;
+    padding: 32px;
+    background-color: #f8f9fa;
+  }
+  
+  /* Form container */
+  .form-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Card */
+  .card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 32px;
+  }
+  
+  /* Course header */
+  .course-header {
+    margin-bottom: 32px;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .icon-container {
+    width: 48px;
+    height: 48px;
+    background-color: #4318d1;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon {
+    width: 28px;
+    height: 28px;
+    color: white;
+  }
+  
+  .course-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #111;
+  }
+  
+  .course-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 24px;
+  }
+  
+  /* Course details */
+  .course-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  /* Coverage section */
+  .coverage-section {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 24px;
+    border-left: 4px solid #4318d1;
+  }
+  
+  .section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 16px;
+  }
+  
+  .topics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 32px;
+  }
+  
+  .topic-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .topic-icon-container {
+    width: 32px;
+    height: 32px;
+    background-color: rgba(67, 24, 209, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .topic-icon {
+    width: 18px;
+    height: 18px;
+    color: #4318d1;
+  }
+  
+  .topic-text {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Highlight box */
+  .highlight-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background-color: rgba(67, 24, 209, 0.05);
+    border-radius: 8px;
+  }
+  
+  .highlight-icon {
+    width: 24px;
+    height: 24px;
+    color: #4318d1;
+  }
+  
+  .highlight-text {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Form styles */
+  .form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .form-input:focus {
+    border-color: #4318d1;
+  }
+  
+  .error-message {
+    font-size: 12px;
+    color: #dc2626;
+  }
+  
+  /* Radio buttons */
+  .radio-group {
+    display: flex;
+    gap: 24px;
+  }
+  
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .radio-input {
+    width: 16px;
+    height: 16px;
+    accent-color: #4318d1;
+  }
+  
+  .radio-label {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Buttons */
+  .button-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  
+  .submit-button {
+    flex: 1;
+    background-color: #4318d1;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .reset-button {
+    flex: 1;
+    background-color: white;
+    color: #4318d1;
+    border: 1px solid #4318d1;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 640px) {
+    .page-container {
+      padding: 16px;
+    }
+  
+    .card {
+      padding: 24px;
+    }
+  
+    .topics-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+  
+  
+
+  

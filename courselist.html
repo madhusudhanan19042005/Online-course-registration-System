@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Available Courses</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="courselist.css" />
+  </head>
+  <body>
+    <main class="page-container">
+      <div class="content-wrapper">
+        <header class="header-section">
+          <h1 class="page-title">Available Courses</h1>
+          <p class="page-description">
+            Take your skills to the next level with our expert-led courses
+          </p>
+        </header>
+
+        <section class="course-grid" id="courseGrid">
+          <!-- Course cards will be dynamically generated here -->
+        </section>
+      </div>
+    </main>
+
+    <!-- Course Detail Modal -->
+    <section class="course-modal" id="courseModal">
+      <div class="modal-content">
+        <button class="close-button" id="closeModal">×</button>
+        <div class="modal-icon" id="modalIcon"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-description" id="modalDescription"></p>
+
+        <div class="modal-details">
+          <div>
+            <div class="detail-label">Duration</div>
+            <div id="modalDuration"></div>
+          </div>
+          <div>
+            <div class="detail-label">Students</div>
+            <div id="modalStudents"></div>
+          </div>
+        </div>
+
+        <div class="modal-price" id="modalPrice"></div>
+        <button class="confirm-button" id="confirmEnrollment">
+          Confirm Enrollment
+        </button>
+      </div>
+    </section>
+
+    <script src="courselist.js"></script>
+  </body>
+</html>
